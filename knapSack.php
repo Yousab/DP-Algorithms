@@ -15,15 +15,16 @@
  * @param $numberOfItems
  * @return int
  */
-function knapSack($knapsackWeight, $weights, $values, $numberOfItems) {
+function knapSack($knapsackWeight, $weights, $values, $numberOfItems)
+{
 
     //Recursive stoping base case
-    if($numberOfItems == 0 || $knapsackWeight == 0) {
+    if ($numberOfItems == 0 || $knapsackWeight == 0) {
         return 0;
     }
 
     //Ignore nth element if it is greater than knapsack weight
-    if($values[$numberOfItems - 1] > $knapsackWeight) {
+    if ($values[$numberOfItems - 1] > $knapsackWeight) {
         knapsack($knapsackWeight, $weights, $values, $numberOfItems - 1);
     }
 
@@ -33,8 +34,8 @@ function knapSack($knapsackWeight, $weights, $values, $numberOfItems) {
 /**
  * Driven code for testing implementation.
  */
-$weights = array(3, 5, 6,4);
-$values = array(14, 8, 10, 12);
-$knapSackWeight = 18;
+$weights = [3, 5, 6, 4];
+$values = [14, 8, 10, 12];
+$knapsackWeight = 18;
 $numberOfItems = count($values);
-echo knapSack($knapSackWeight, $weights, $values, $numberOfItems);
+echo knapSack($knapsackWeight, $weights, $values, $numberOfItems);
